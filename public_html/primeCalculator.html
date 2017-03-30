@@ -25,8 +25,7 @@ function isPrime() {
     message.innerHTML = "";
     //get input from user
     x = document.getElementById("demo").value;
-    var sqrtNumber = Math.sqrt(x);
-    
+        
     //check if input is empty
     if(x == ""|| x==null)
     {
@@ -42,13 +41,14 @@ function isPrime() {
         {
             text = x + " is not prime";
         }
-        else if (x==2|x==3)
+        else if (x==2||x==3)
         {
             text = x + " is prime";
         }
         else 
         //if a valid number is input >= 4
         {
+            var sqrtNumber = Math.sqrt(x);
             for (var i = 2; i <= sqrtNumber; i++)
             {
                 if (x % i == 0)
