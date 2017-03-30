@@ -1,0 +1,72 @@
+<!--
+Ann Jones
+8 Weeks of Code Challenge
+IDE: NetBeans 8.1
+Start: 3/27/2017
+Complete: 3/28/2017
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<p>Prime Checker </p>
+<p>Please enter a number: 
+<input id="demo" type="text">
+<button type="button" onclick="isPrime()">Enter</button>
+
+<p id="message"></p>
+
+<script>
+function isPrime() {
+    //variables
+    var message, x, text;
+    //message is displayed as result
+    message = document.getElementById("message");
+    message.innerHTML = "";
+    //get input from user
+    x = document.getElementById("demo").value;
+    var sqrtNumber = Math.sqrt(x);
+    
+    //check if input is empty
+    if(x == ""|| x==null)
+    {
+        text = "Input is empty";
+    }
+        //check if input is a number
+        else if(isNaN(x)) 
+        {
+            text = "Input is not a number";
+        }
+        //check for negatives or decimals
+        else if (!isFinite(x) || x % 1 != 0 || x < 2)
+        {
+            text = x + " is not prime";
+        }
+        else if (x==2|x==3)
+        {
+            text = x + " is prime";
+        }
+        else 
+        //if a valid number is input >= 4
+        {
+            for (var i = 2; i <= sqrtNumber; i++)
+            {
+                if (x % i == 0)
+                {
+                    text = x + " is not prime"; 
+                    break;
+                }
+                else
+                {
+                    text = x + " is prime";
+                }
+            }
+        }
+    message.innerHTML = text;
+}
+
+
+</script>
+
+</body>
+</html>
